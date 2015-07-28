@@ -39,8 +39,8 @@ namespace CSharpNameParser
             // is last word a suffix? (Jr, III)
             var suffix = IsSuffix (nameParts [numWords - 1]);
             // set the range for the middle part of the name (trim prefixes & suffixes)
-            int start = !String.IsNullOrEmpty (salutation) ? 1 : 0;
-            int end = !String.IsNullOrEmpty (suffix) ? numWords - 1 : numWords;
+            int start = !String.IsNullOrEmpty (salutation) && (1 < numWords) ? 1 : 0;
+            int end = !String.IsNullOrEmpty (suffix) && (1 < numWords) ? numWords - 1 : numWords;
 
             // if last name is first
             nameParts = ReOrderNamePartsIfLastNameIsFirst (nameParts, start, end - 1);
